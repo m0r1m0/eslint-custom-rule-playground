@@ -1,0 +1,11 @@
+{
+  "name": "eslint-custom-rule-tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-plugin-rulesdir": "^0.1.0",
+    "eslint-plugin-custom-rule": "file:eslint"
+  }
+}
