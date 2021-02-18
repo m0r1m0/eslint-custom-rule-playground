@@ -22,6 +22,9 @@ ruleTester.run("require-translate", rule, {
     },
     {
       code: `<div>{t("こんにちは")}</div>`
+    },
+    {
+      code: `<Component text={t(こんにちは)} />`,
     }
   ],
   invalid: [
@@ -31,6 +34,14 @@ ruleTester.run("require-translate", rule, {
     },
     {
       code: `<div>こんにちは</div>`,
+      errors: [{ message: "多言語化タグつかわなくていいん？" }]
+    },
+    {
+      code: `<Component text="こんにちは" />`,
+      errors: [{ message: "多言語化タグつかわなくていいん？" }]
+    },
+    {
+      code: `<Component text={"こんにちは"} />`,
       errors: [{ message: "多言語化タグつかわなくていいん？" }]
     }
   ]
