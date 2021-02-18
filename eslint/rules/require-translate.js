@@ -17,6 +17,17 @@ module.exports = {
           });
         }
       },
+      JSXText: (node) => {
+        if (
+          node.value.match(/^.*[^a-zA-Z0-9 !-/:-@[-`{-~]+.*$/)
+        ) {
+          node.get;
+          context.report({
+            node,
+            message: "多言語化タグつかわなくていいん？",
+          });
+        }
+      },
     };
   },
 };
