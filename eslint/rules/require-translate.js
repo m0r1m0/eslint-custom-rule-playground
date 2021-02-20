@@ -2,6 +2,9 @@ module.exports = {
   meta: {
     type: "suggestion",
     schema: [],
+    messages: {
+      requireTranslate: "多言語化タグつかわなくていいん？"
+    }
   },
   create(context) {
     return {
@@ -13,7 +16,7 @@ module.exports = {
           node.get;
           context.report({
             node,
-            message: "多言語化タグつかわなくていいん？",
+            messageId: "requireTranslate",
           });
         }
       },
@@ -24,7 +27,7 @@ module.exports = {
           node.get;
           context.report({
             node,
-            message: "多言語化タグつかわなくていいん？",
+            messageId: "requireTranslate",
           });
         }
       },
