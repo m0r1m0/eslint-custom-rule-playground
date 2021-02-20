@@ -15,7 +15,6 @@ module.exports = {
           !isTranslated(node) &&
           node.value.match(JAPANESE_REGEX)
         ) {
-          node.get;
           context.report({
             node,
             messageId: "requireTranslate",
@@ -26,7 +25,6 @@ module.exports = {
         if (
           node.value.match(JAPANESE_REGEX)
         ) {
-          node.get;
           context.report({
             node,
             messageId: "requireTranslate",
