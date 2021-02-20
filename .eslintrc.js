@@ -8,6 +8,7 @@ module.exports = {
   },
   plugins: ["custom-rule"],
   rules: {
-    "custom-rule/require-translate": 1
+    "custom-rule/require-translate": "warn",
+    "custom-rule/use-util-fetch": "error",
   }
 };
