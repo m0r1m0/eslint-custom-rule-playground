@@ -1,3 +1,5 @@
+const JAPANESE_REGEX = /^.*[^a-zA-Z0-9 !-/:-@[-`{-~]+.*$/;
+
 module.exports = {
   meta: {
     type: "suggestion",
@@ -11,7 +13,7 @@ module.exports = {
       Literal: (node) => {
         if (
           !isTranslated(node) &&
-          node.value.match(/^.*[^a-zA-Z0-9 !-/:-@[-`{-~]+.*$/)
+          node.value.match(JAPANESE_REGEX)
         ) {
           node.get;
           context.report({
@@ -22,7 +24,7 @@ module.exports = {
       },
       JSXText: (node) => {
         if (
-          node.value.match(/^.*[^a-zA-Z0-9 !-/:-@[-`{-~]+.*$/)
+          node.value.match(JAPANESE_REGEX)
         ) {
           node.get;
           context.report({
