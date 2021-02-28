@@ -7,7 +7,6 @@ module.exports = {
     ecmaVersion: 2020
   },
   extends: [
-    "eslint:recommended",
     "plugin:custom-rule/recommended"
   ],
 };

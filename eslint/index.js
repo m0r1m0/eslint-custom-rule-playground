@@ -6,4 +6,13 @@ module.exports = {
     "require-translate": requireTranslate,
     "use-util-fetch": useUtilFetch,
   },
+  configs: {
+    recommended: {
+      plugins: ["custom-rule"],
+      rules: {
+        "custom-rule/require-translate": "warn",
+        "custom-rule/use-util-fetch": "error",
+      }
+    },
+  },
 };

@@ -4,6 +4,9 @@ module.exports = {
   meta: {
     type: "suggestion",
     schema: [],
+    docs: {
+      recommended: true
+    },
     messages: {
       requireTranslate: "多言語化タグつかわなくていいん？"
     }

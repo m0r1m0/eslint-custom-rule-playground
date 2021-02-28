@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "eslint": "eslint src"
+  },
   "devDependencies": {
     "eslint": "^7.20.0",
-    "eslint-plugin-rulesdir": "^0.1.0",
-    "eslint-plugin-custom-rule": "file:eslint"
+    "eslint-plugin-custom-rule": "file:eslint",
+    "eslint-plugin-rulesdir": "^0.1.0"
   }
 }

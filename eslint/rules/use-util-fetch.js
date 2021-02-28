@@ -4,6 +4,9 @@ module.exports = {
   meta: {
     type: "problem",
     schema: [],
+    docs: {
+      recommended: true
+    },
     messages: {
       useUtilFetch: "`utils/fetch`を利用してください"
     }
