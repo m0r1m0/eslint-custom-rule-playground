@@ -8,15 +8,15 @@ module.exports = {
       recommended: true,
     },
     messages: {
-      noVarAsTranslateArg: "多言語化の引数に変数を使わないでください",
+      noVarAsTranslateArg: "多言語化の第一引数に変数を使わないでください",
     },
   },
   create(context) {
     return {
       CallExpression: (node) => {
-        if (isTranslateFunc(node)) {
-          const targetNode = node.arguments.find((v) => v.type === "Identifier");
-          if (targetNode != null) {
+        if (isTranslateFunc(node) && node.arguments.length > 0) {
+          const targetNode = node.arguments[0];
+          if (targetNode.type === "Identifier") {
             context.report({
               node: targetNode,
               messageId: "noVarAsTranslateArg",

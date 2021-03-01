@@ -7,9 +7,9 @@ const ruleTester = new RuleTester({
   parserOptions: {
     ecmaVersion: 2020,
     ecmaFeatures: {
-      jsx: true
-    }
-  }
+      jsx: true,
+    },
+  },
 });
 
 ruleTester.run("no-var-as-translate-arg", rule, {
@@ -17,11 +17,18 @@ ruleTester.run("no-var-as-translate-arg", rule, {
     {
       code: `t("こんにちは")`,
     },
+    {
+      code: `t("xxx", option)`,
+    },
   ],
   invalid: [
     {
       code: `t(textVar)`,
-      errors: [{ messageId: "noVarAsTranslateArg" }]
+      errors: [{ messageId: "noVarAsTranslateArg" }],
     },
-  ]
-})
+    {
+      code: `t(val, {xxx: sssss})`,
+      errors: [{ messageId: "noVarAsTranslateArg" }],
+    },
+  ],
+});
