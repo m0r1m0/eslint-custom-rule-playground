@@ -1,3 +1,4 @@
+const isTranslateFunc = require("../utils/isTranslateFunc");
 const JAPANESE_REGEX = /^.*[^a-zA-Z0-9 !-/:-@[-`{-~]+.*$/;
 
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
     return {
       Literal: (node) => {
         if (
-          !isTranslated(node) &&
+          !isTranslateFunc(node.parent) &&
           node.value.match(JAPANESE_REGEX)
         ) {
           context.report({
@@ -37,23 +38,3 @@ module.exports = {
     };
   },
 };
-
-function isTranslated(node) {
-  // t("こんにちは")
-  if (
-    node.parent.type === "CallExpression" &&
-    node.parent.callee.name === "t"
-  ) {
-    return true;
-  }
-  // i18n.t("こんにちは")
-  if (
-    node.parent.type === "CallExpression" &&
-    node.parent.callee.type === "MemberExpression" &&
-    node.parent.callee.object.name === "i18n" &&
-    node.parent.callee.property.name === "t"
-  ) {
-    return true;
-  }
-  return false;
-}
